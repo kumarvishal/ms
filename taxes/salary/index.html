@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <link rel="import" href="/layouts/base.html">
+    <link rel="stylesheet" type="text/css" href="../common/tax.css">
+  </head>
+  <body>
+    <!-- START: area leftArea -->
+    <div class="area leftArea">
+
+      <!-- START: cluster -->
+      <div class="cluster">
+        <!-- START: component -->
+        <div class="component">
+          <div class="element elLeft">
+            <label>New CTC :</label>
+          </div>
+          <div class="element elRight">
+            <input type="number" name="ctc" class="ctc actioninputs" id="ctc" placeholder="Enter CTC" step="50000" value="1000000">
+          </div>
+        </div>
+        <!-- END: component -->
+
+        <!-- START: component -->
+        <div class="component">
+          <div class="element elLeft">
+            <label></label>
+          </div>
+          <div class="element elRight">
+            <button class="btn leftFloat actionbuttons" id="calc">Calculate</button>
+          </div>
+        </div>
+        <!-- END: component -->
+
+        <!-- START: component -->
+        <div class="component">
+          <div class="element elLeft">
+            <label>Old CTC :</label>
+          </div>
+          <div class="element elRight">
+            <input type="number" name="oldctc" class="oldctc actioninputs" id="oldctc" placeholder="Enter OLD CTC" step="50000" value="500000">
+          </div>
+        </div>
+        <!-- END: component -->
+
+        <!-- START: component -->
+        <div class="component">
+          <div class="element elLeft">
+            <label>80-C :</label>
+          </div>
+          <div class="element elRight">
+            <input type="number" name="inv80c" class="inv80c actioninputs" id="inv80c" placeholder="Enter 80C" step="10000" value="150000">
+            <button class="btn resetbuttons">Nil</button>
+          </div>
+        </div>
+        <!-- END: component -->
+
+        <!-- START: component -->
+        <div class="component">
+          <div class="element elLeft">
+            <label>HRA :</label>
+          </div>
+          <div class="element elRight">
+            <input type="number" name="hra" class="hra actioninputs" id="hra" placeholder="HRA" step="10000" value="100000">
+            <button class="btn resetbuttons">Nil</button>
+          </div>
+        </div>
+        <!-- END: component -->
+
+        <!-- START: component -->
+        <div class="component">
+          <div class="element elLeft">
+            <label>Appraisal :</label>
+          </div>
+          <div class="element elRight">
+            <input type="number" name="hikePercentage" class="hikePercentage actioninputs" id="hikePercentage" placeholder="Appraisal Percentage" step="1" value="7">
+          </div>
+        </div>
+        <!-- END: component -->
+
+        <!-- START: component -->
+        <div class="component">
+          <div class="element elLeft">
+            <label>Expenditure/year :</label>
+          </div>
+          <div class="element elRight">
+            <input type="number" name="expenditure" class="expenditure actioninputs" id="expenditure" placeholder="Expenditure Per Year" step="50000" value="400000">
+          </div>
+        </div>
+        <!-- END: component -->
+
+        <!-- START: component -->
+        <div class="component">
+          <div class="element elLeft">
+            <label>Income Tax Slab :</label>
+          </div>
+          <div class="element elRight">
+            <select name="ageSlab" class="ageSlab actioninputs" id="ageSlab" value="below60">
+                <option value="below60" selected>Below 60 Years</option>
+                <option value="above60">61 -to- 80 Years</option>
+                <option value="above80">Above 80 Years</option>
+            </select>
+          </div>
+        </div>
+        <!-- END: component -->
+
+      </div>
+      <!-- END: cluster -->
+
+      <!-- START: cluster -->
+      <div class="cluster">
+        <!-- START: component -->
+        <div class="component">
+          <div class="element elLeft">
+            <button class="btn leftFloat" id="switchcar">Car Lease ON</button>
+          </div>
+          <div class="element elRight">
+            <button class="btn rightFloat" id="refreshcar"><i class="fa fa-refresh" aria-hidden="true"></i></button>
+          </div>
+        </div>
+        <!-- END: component -->
+
+        <!-- START: component -->
+        <div class="component">
+<!--           <div class="element elLeft">
+            <label>Loan Amount : </label>
+            <input type="text" name="carretailprice" class="carretailprice actioninputs" id="carretailprice" placeholder="Enter Car Price" value="943443" autocomplete='on'>
+          </div>
+ -->
+          <div class="element elLeft">
+            <select name="carretailprice" class="carretailprice actioninputs" id="carretailprice">
+                <option value="631414" data-varamount="28900">Baleno Delta (631414-28900)</option>
+                <option value="857043" data-varamount="45546">Brezza Vdi (857043-45546)</option>
+                <option value="943443" data-varamount="49019">Brezza Zdi (943443-49019)</option>
+            </select>
+          </div>
+
+          <div class="element elRight">
+            <label>Var Amount : </label>
+            <input type="text" name="carvaramount" class="carvaramount actioninputs" id="carvaramount" placeholder="Enter Car Price" value="50000" autocomplete='on'>
+          </div>
+        </div>
+        <!-- END: component -->
+
+        <!-- START: component -->
+        <div class="component">
+
+          <div class="element elRight">
+            <div class="element elRight">
+              <label>Capitalized: </label>
+              <strong id="carcapitalizedamount">0</strong>
+            </div>
+            <div class="element elRight">
+              <label>VAT: </label>
+              <strong id="carvatamount">0</strong>
+            </div>
+          </div>
+
+          <div class="element elLeft">
+            <label>EMI: </label>
+            <strong id="caremi">0</strong>
+          </div>
+
+          <div class="element elRight">
+            <label>Total Exemption: </label>
+            <strong id="carexemptionamount">25000</strong>
+          </div>
+          <div class="element elRight">
+            <label>Tax Saved: </label>
+            <strong id="cartaxsaved">0</strong>
+          </div>
+
+          <div class="element elRight">
+            <label>Car Cost: </label>
+            <strong id="caractualcost" class="redColor">0</strong>
+          </div>
+          <div class="element elRight">
+            <label>Actual EMI: </label>
+            <strong id="caractualemi" class="redColor">0</strong>
+          </div>
+
+
+        </div>
+        <!-- END: component -->
+
+        <!-- START: component -->
+        <div class="component">
+          <div class="element elLeft">
+            <select name="carinterestrate" class="carinterestrate actioninputs" id="carinterestrate">
+                <option value="9">Interest: 9 (%)</option>
+                <option value="11.65" selected>Interest:  11.65 (%)</option>
+                <option value="15">Interest:  15 (%)</option>
+            </select>
+          </div>
+          <div class="element elRight">
+            <select name="carloantperiod" class="carloantperiod actioninputs" id="carloantperiod">
+                <option value="1">Tenure: 1 Year</option>
+                <option value="2">Tenure: 2 Year</option>
+                <option value="3">Tenure: 3 Year</option>
+                <option value="4" selected>Tenure: 4 Year</option>
+                <option value="5">Tenure: 5 Year</option>
+            </select>
+          </div>
+        </div>
+        <!-- END: component -->
+      </div>
+      <!-- END: cluster -->
+
+    </div>
+    <!-- END: area leftArea -->
+
+    <!-- START: area rightArea -->
+    <div class="area rightArea">
+      <!-- START: cluster -->
+      <div class="cluster">
+        <!-- START: component -->
+        <div class="component">
+          <div class="element elLeft">
+            <label class="labeltitle">Monthly</label>
+          </div>
+          <div class="element elRight">
+            <label>-</label>
+          </div>
+        </div>
+        <!-- END: component -->
+
+        <!-- START: component -->
+        <div class="component">
+          <div class="element elLeft">
+            <label>Income:</label>
+          </div>
+          <div class="element elRight">
+            <label id="monthly">0</label>
+          </div>
+        </div>
+        <!-- END: component -->
+
+        <!-- START: component -->
+        <div class="component">
+          <div class="element elLeft">
+            <label>Tax:</label>
+          </div>
+          <div class="element elRight">
+            <label id="monthlytax">0</label>
+          </div>
+        </div>
+        <!-- END: component -->
+
+      </div>
+      <!-- END: cluster -->
+
+      <!-- START: cluster -->
+      <div class="cluster">
+        <!-- START: component -->
+        <div class="component">
+          <div class="element elLeft">
+            <label class="labeltitle">Yearly</label>
+          </div>
+          <div class="element elRight">
+            <label>-</label>
+          </div>
+        </div>
+        <!-- END: component -->
+
+        <!-- START: component -->
+        <div class="component">
+          <div class="element elLeft">
+            <label>Income:</label>
+          </div>
+          <div class="element elRight">
+            <label id="yearly">0</label>
+          </div>
+        </div>
+        <!-- END: component -->
+
+        <!-- START: component -->
+        <div class="component">
+          <div class="element elLeft">
+            <label>Tax:</label>
+          </div>
+          <div class="element elRight">
+            <label id="yearlytax">0</label>
+          </div>
+        </div>
+        <!-- END: component -->
+      </div>
+      <!-- END: cluster -->
+
+      <!-- START: cluster -->
+      <div class="cluster">
+        <!-- START: component -->
+        <div class="component">
+          <div class="element elLeft">
+            <label class="labeltitle">Hike Percentage</label>
+          </div>
+          <div class="element elRight">
+            <label>-</label>
+          </div>
+        </div>
+        <!-- END: component -->
+
+        <!-- START: component -->
+        <div class="component">
+          <div class="element elLeft">
+            <label>Percentage (%):</label>
+          </div>
+          <div class="element elRight">
+            <label id="hikepercentage">0</label>
+            <label>%</label>
+          </div>
+        </div>
+        <!-- END: component -->
+
+        <!-- START: component -->
+        <div class="component">
+          <div class="element elLeft">
+            <label>Amount ($):</label>
+          </div>
+          <div class="element elRight">
+            <label id="hikeamount">0</label>
+          </div>
+        </div>
+        <!-- END: component -->
+      </div>
+      <!-- END: cluster -->
+
+      <!-- START: cluster -->
+      <div class="cluster futureIncomeCluster">
+        <!-- START: component -->
+        <div class="component">
+          <div class="element elLeft">
+            <label class="labeltitle">Next 5 Years</label>
+          </div>
+          <div class="element elRight">
+            <label>-</label>
+          </div>
+        </div>
+        <!-- END: component -->
+
+        <!-- START: component -->
+        <div class="component">
+          <div class="element elLeft">
+            <label>Year 1:</label>
+            <label id="incomeyear1"></label>
+          </div>
+          <div class="element elRight">
+            <label id="incomevalue1">0</label>
+          </div>
+        </div>
+        <!-- END: component -->
+
+        <!-- START: component -->
+        <div class="component">
+          <div class="element elLeft">
+            <label>Year 2:</label>
+            <label id="incomeyear2"></label>
+          </div>
+          <div class="element elRight">
+            <label id="incomevalue2">0</label>
+          </div>
+        </div>
+        <!-- END: component -->
+
+        <!-- START: component -->
+        <div class="component">
+          <div class="element elLeft">
+            <label>Year 3:</label>
+            <label id="incomeyear3"></label>
+          </div>
+          <div class="element elRight">
+            <label id="incomevalue3">0</label>
+          </div>
+        </div>
+        <!-- END: component -->
+
+        <!-- START: component -->
+        <div class="component">
+          <div class="element elLeft">
+            <label>Year 4:</label>
+            <label id="incomeyear4"></label>
+          </div>
+          <div class="element elRight">
+            <label id="incomevalue4">0</label>
+          </div>
+        </div>
+        <!-- END: component -->
+
+        <!-- START: component -->
+        <div class="component">
+          <div class="element elLeft">
+            <label>Year 5:</label>
+            <label id="incomeyear5"></label>
+          </div>
+          <div class="element elRight">
+            <label id="incomevalue5">0</label>
+          </div>
+        </div>
+      </div>
+      <!-- END: cluster -->
+    </div>
+    <!-- END: area rightArea -->
+
+  </body>
+
+  <script type="text/javascript" src="calculations.js"></script>
+</html>
+

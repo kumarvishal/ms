@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="/style/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="/style/css/common.css">
+		<script type="text/javascript" src="/script/jquery.min.js"></script>
+		<script type="text/javascript" src="/script/common.js"></script>
+	</head>
+	<body>
+		<div class="console">
+		</div>
+	</body>
+
+	<script type="text/javascript">
+		try {
+			// With modifying prototype
+			function Vehicle(name) {
+				this.name = name;
+			}
+
+			var vehicle1 = new Vehicle('car');
+			Vehicle.prototype = {
+				getName: function(){
+					return this.name;
+				}
+			}
+			console.print('vehicle1 instanceof Vehicle');
+			console.print(vehicle1 instanceof Vehicle);
+
+
+			// Without modifying prototype
+			function School(name) {
+				this.name = name;
+			}
+
+			var school1 = new School('dav');
+			console.print('school1 instanceof School');
+			console.print(school1 instanceof School);
+		} catch (Ex) {
+			console.printError(Ex);
+		}
+
+	</script>
+</html>

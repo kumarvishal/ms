@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="/style/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="/style/css/common.css">
+		<script type="text/javascript" src="/script/jquery.min.js"></script>
+		<script type="text/javascript" src="/script/common.js"></script>
+	</head>
+	<body>
+		<div class="console">
+		</div>
+	</body>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			try {
+				// Initializing sumTotal varaibale
+				var sumTotal;
+
+				// Recursive Program for checking dataType of array elements
+				// and adding array elements to the master sumTotal
+				function sumOfArrayElements(arr){
+					for(var index=0; index < arr.length; index++){
+						if(arr[index].constructor === Array) {
+							sumOfArrayElements(arr[index]);
+						} else if(!isNaN(arr[index])){
+							sumTotal+=parseInt(arr[index]);
+						}
+					}
+				}
+
+				// abstracting sumAll function to get input check its basic
+				// datastructure and I/O restriction, rest execution will happen
+				// in sumOfArrayElements recursive function
+				function sumAll(inputArr){
+					sumTotal = 0;
+					if(inputArr && inputArr.constructor === Array){
+						sumOfArrayElements(inputArr);
+						console.print(inputArr);
+						console.print(sumTotal);
+					} else {
+						console.print("Invalid Argument to function sumAll");
+					}
+				}
+
+				// run #1
+				sumAll([1, 2, [3, [4, 5, 6, [7, 'hello', 'world', 8, 9, [[10]]]]]]);
+
+				// run #1
+				sumAll([1, 2, [3, [4, 5, 6, [7, 'hello', 'world', 8, 9, [[10]]]]]]);
+			} catch (Ex) {
+				console.printError(Ex);
+			}
+		});
+	</script>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="/style/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="/style/css/common.css">
+		<script type="text/javascript" src="/script/jquery.min.js"></script>
+		<script type="text/javascript" src="/script/common.js"></script>
+	</head>
+	<body>
+		<div class="console">
+		</div>
+	</body>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			try {
+				var temp = 'JS';
+				(function(){
+					temp = 'JAVASCRIPT';
+					function temp(){
+						console.print('script');
+					}
+					console.print(temp);
+				}());
+
+				console.print(temp);
+			} catch (Ex) {
+				console.printError(Ex);
+			}
+		});
+
+		// Explaination
+		// inner temp function is hoisted at top and treated like a local variable as if var temp inside the function
+		// i.e. functions are hoisted exactly like variables with function name is variable name
+		// outer variable is not touched by inside temp variable because of reason above.
+	</script>
+</html>

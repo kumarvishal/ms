@@ -1,0 +1,39 @@
+<!doctype html>
+<html ng-app="exampleDialog">
+    <head>
+        <title>Clipboard ! Copy to clipboard memory</title>
+        <link rel="stylesheet" type="text/css" href="/style/css/common.css"/>
+        <script type="text/javascript" src="/script/jquery.min.js"></script>
+        <style type="text/css">
+            .js-copytextarea {
+                position: absolute;
+                top: -50px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <nav>
+                <a href="/" tabindex="1"><button>Home</button></a>
+            </nav>
+        </header>
+    	<div id="page">
+            <textarea class="js-copytextarea" readonly="readonly">This text will be copied to cliboard by pressing enter or clicking button</textarea>
+            <button class="js-textareacopybtn">Press Enter to Copy Hidden Text and Close this window !</button>
+    	</div>
+    </body>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var copyTextareaBtn = document.querySelector('.js-textareacopybtn');
+
+            copyTextareaBtn.addEventListener('click', function(event) {
+                var copyTextarea = document.querySelector('.js-copytextarea');
+                copyTextarea.select();
+                document.execCommand('copy');
+                window.close();
+            });
+            copyTextareaBtn.focus();
+        })
+    </script>
+</html>

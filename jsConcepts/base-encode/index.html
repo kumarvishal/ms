@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="/style/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="/style/css/common.css">
+		<script type="text/javascript" src="/script/jquery.min.js"></script>
+		<script type="text/javascript" src="/script/common.js"></script>
+	</head>
+	<body>
+		<div class="console">
+		</div>
+	</body>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			// Initializing conversionString varaibale
+			var conversionString;
+			// Initializing characterMapping string to map number to base string's character
+			var characterMapping = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-'
+
+
+			// this is recursive function untill number is converted to
+			// selected base, called from main I/O function
+			function convertToBase(num, base){
+				if(num == base){
+					conversionString = '10';
+				} else {
+					if(num < base){
+						conversionString += characterMapping[num];
+					} else {
+						var modulas = num % base;
+						conversionString += characterMapping[modulas];
+						convertToBase(modulas, base);
+					}
+				}
+			}
+
+			// abstracting shiftBase function to get input check its basic
+			// datastructure and I/O restriction, rest execution will happen
+			// in convertToBase function
+			function shiftBase(num, base){
+				conversionString = '';
+				if(!isNaN(num) && !isNaN(base)){
+					convertToBase(num, base);
+					console.print(('shiftBase(' + num + ', ' + base + ')  = '), conversionString);
+				} else {
+					console.print("Invalid Argument to function shiftBase");
+				}
+			}
+
+
+			shiftBase(15, 16) // f
+			shiftBase(16, 16) // 10
+			shiftBase(255, 16) // ff
+			shiftBase(63, 64) // -
+			shiftBase(4095, 64) // --
+			shiftBase(35, 36) // z
+			shiftBase(36, 36) // 10
+			shiftBase(8, 8) // 10
+			shiftBase(63, 8) // 77
+		});
+	</script>
+</html>

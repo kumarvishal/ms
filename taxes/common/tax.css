@@ -1,0 +1,42 @@
+.component, .cluster {
+	clear: both;
+}
+
+.head {
+    font-size: 2em;
+	font-weight: bold;
+	text-align: center
+}
+
+.head label {
+	font-weight: bold;
+}
+
+
+.component {
+    padding: 5px 10px 5px 10px;
+	border: dotted 1px #ccc;
+}
+
+.leftArea, .rightArea, .element {
+	display: inline-block;
+}
+
+.area {
+	width: 50%;
+	float: left;
+	padding: 10px;
+}
+
+.cluster {
+	border-style: solid;
+	border-color: #ccc;
+	border-width: 5px 10px 5px 10px;
+}
+
+.element {
+	width: 49%;
+}
+.redColor {
+	color: red;
+}

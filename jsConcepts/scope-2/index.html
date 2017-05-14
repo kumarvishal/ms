@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="/style/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="/style/css/common.css">
+		<script type="text/javascript" src="/script/jquery.min.js"></script>
+		<script type="text/javascript" src="/script/common.js"></script>
+	</head>
+	<body>
+		<div class="console">
+		</div>
+	</body>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			try {
+				var x = 5;
+				(function(){
+					x = 8;
+					var x = 7;
+				}())
+
+				// 
+				console.print(x);
+			} catch (Ex) {
+				console.printError(Ex);
+			}
+		});
+
+		// Explaination
+		// var x = 7 will be hoisted at top so it will change local variable value to 8
+
+	</script>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <link rel="stylesheet" type="text/css" href="/style/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/style/css/common.css">
+    <link rel="stylesheet" type="text/css" href="../common/tax.css">
+    <script type="text/javascript" src="/script/jquery.min.js"></script>
+  </head>
+
+  <body>
+
+    <div class="area leftArea">
+      <div class="cluster head">
+        <div class="component">
+          <div class="element elLeft">
+            <label>Forward Tax</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="cluster">
+        <div class="component">
+          <div class="element elLeft">
+            <label>Amout to be taxed :</label>
+          </div>
+          <div class="element elRight">
+            <input type="number" name="ftaxamount" class="ftaxamount factioninputs" id="ftaxamount" placeholder="Enter Amount" step="100" value="112">
+          </div>
+        </div>
+
+        <div class="component">
+          <div class="element elLeft">
+            <label>Tax Percentage (%):</label>
+          </div>
+          <div class="element elRight">
+            <input type="number" name="ftaxpercentage" class="ftaxpercentage factioninputs" id="ftaxpercentage" placeholder="Enter %" step="1" value="12.5">
+          </div>
+        </div>
+
+        <div class="component">
+          <div class="element elLeft">
+            <label></label>
+          </div>
+          <div class="element elRight">
+            <button class="btn leftFloat factionbuttons" id="calc">Calculate Tax</button>
+          </div>
+        </div>
+
+        <div class="component">
+          <div class="element elLeft">
+            <label>Tax :</label>
+          </div>
+          <div class="element elRight">
+            <label id="ftax">0</label>
+          </div>
+        </div>
+
+        <div class="component">
+          <div class="element elLeft">
+            <label>Total :</label>
+          </div>
+          <div class="element elRight">
+            <label id="ftotal">0</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="cluster">
+        <div class="component">
+          <div class="element elLeft">
+            <label>Results :</label>
+          </div>
+          <div class="element elRight">
+            
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="area rightArea">
+      <div class="cluster head">
+        <div class="component">
+          <div class="element elLeft">
+            <label>Reverse Tax</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="cluster">
+        <div class="component">
+          <div class="element elLeft">
+            <label>Amout aftes taxes :</label>
+          </div>
+          <div class="element elRight">
+            <input type="number" name="rtaxamount" class="rtaxamount ractioninputs" id="rtaxamount" placeholder="Enter Amount" step="100" value="125">
+          </div>
+        </div>
+
+        <div class="component">
+          <div class="element elLeft">
+            <label>Tax Percentage (%):</label>
+          </div>
+          <div class="element elRight">
+            <input type="number" name="rtaxpercentage" class="rtaxpercentage ractioninputs" id="rtaxpercentage" placeholder="Enter %" step="1" value="12.5">
+          </div>
+        </div>
+
+        <div class="component">
+          <div class="element elLeft">
+            <label></label>
+          </div>
+          <div class="element elRight">
+            <button class="btn leftFloat ractionbuttons" id="calc">Tax Breakup</button>
+          </div>
+        </div>
+
+        <div class="component">
+          <div class="element elLeft">
+            <label>Tax :</label>
+          </div>
+          <div class="element elRight">
+            <label id="rtax">0</label>
+          </div>
+        </div>
+
+        <div class="component">
+          <div class="element elLeft">
+            <label>Original :</label>
+          </div>
+          <div class="element elRight">
+            <label id="roriginal">0</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="cluster">
+        <div class="component">
+          <div class="element elLeft">
+            <label>Results :</label>
+          </div>
+          <div class="element elRight">
+            
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </body>
+
+  <script type="text/javascript" src="calculations.js"></script>
+</html>
+

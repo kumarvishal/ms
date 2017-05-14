@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="/style/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="/style/css/common.css">
+		<script type="text/javascript" src="/script/jquery.min.js"></script>
+		<script type="text/javascript" src="/script/common.js"></script>
+	</head>
+	<body>
+		<div class="console">
+		</div>
+	</body>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			try {
+				// Using prototype to add the function 'callAfter'
+				// to Function base class
+				Function.prototype.callAfter = function(){
+					var self = this;
+					var storedArgs = arguments;
+					setTimeout(function(){
+						self.apply(null, Array.prototype.slice.call(storedArgs, 1));
+					}, arguments[0]);
+				}
+
+				// function 'sum'
+				function sum(a, b) {
+					console.print('Sum is: ', a + b);
+				}
+
+				// This will run instantly
+				sum(1, 2);
+				// This will run after 2 seconds
+				sum.callAfter(2000, 1, 2);
+			} catch (Ex) {
+				console.printError(Ex);
+			}
+		});
+	</script>
+</html>

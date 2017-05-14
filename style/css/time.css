@@ -1,0 +1,42 @@
+.hour0 {
+	color: #FF0000;
+}
+.hour1 {
+	color: #FF0000;
+}
+.hour2 {
+	color: #FF3000;
+}
+.hour3 {
+	color: #FF6000;
+}
+.hour4 {
+	color: #FF9000;
+}
+.hour5 {
+	color: #FF9000;
+}
+.hour6 {
+	color: #FFE000;
+}
+.hour7 {
+	color: #B0FF00;
+}
+.hour8 {
+	color: #10FF00;
+}
+.hour9 {
+	color: green;
+}
+.hour10 {
+	color: green;
+}
+.hour11 {
+	color: green;
+}
+.hour12 {
+	color: green;
+}
+.ui-slider-handle {
+	cursor: pointer !important;
+}

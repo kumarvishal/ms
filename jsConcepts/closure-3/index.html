@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="/style/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="/style/css/common.css">
+		<script type="text/javascript" src="/script/jquery.min.js"></script>
+		<script type="text/javascript" src="/script/common.js"></script>
+	</head>
+	<body>
+		<div class="console">
+		</div>
+	</body>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			try {
+				var len = 3, myObj = {
+					name: 'Vishal Kumar',
+					details: {
+						round: 1000
+					}
+				};
+
+				//function closureFunc(passByValue, passByRef, passByValue, passByValue){
+				function closureFunc(label, obj, round, i){
+					return function(){
+						console.print(label, obj.name, obj.details.round, round, i);
+						console.print("------------");
+					}
+				}
+
+				for(var i=0; i<len; i++){
+					setTimeout(closureFunc('Outside-', myObj, myObj.details.round, i), 1000);
+					myObj.details.round++;
+				}
+				myObj.name = "Amit";
+
+			} catch (Ex) {
+				console.printError(Ex);
+			}
+		});
+
+		// Explaination
+		// setTimeout needs a function in closure, i.e. do not call the function by adding () at the end
+		// just provide the function.
+	</script>
+</html>

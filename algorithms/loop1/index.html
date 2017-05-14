@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!-- 
+			 N   =   5
+
+	i	R	 123456789						ABS
+
+    0   1        1			4+1		5		4
+    1   2       121			3+3		6		3
+    2   3      12321		2+5		7		2
+    3   4     1234321		1+7		8		1
+    4   5    123454321		0+9		9		0
+    5   6     1234321		1+7		8		1
+    6   7      12321		2+5		7		2
+    7   8       121			3+3		6		3
+    8   9        1			4+1		5		4
+ -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="import" href="/layouts/base.html">
+	</head>
+	<body>
+		<div class="console">
+		</div>
+	</body>
+
+	<script type="text/javascript">
+
+		$(document).ready(function(){
+			try {
+				var N = Utility.getInput(null, 5, 'i');
+				var rows = (2*N) - 1;
+				var outReverse=false;
+
+				for(var i=0, l=1; i<rows; i++){
+					var inReverse=false;
+					if(l>=rows){outReverse=true;}
+
+					for(var j=1; j<=Math.abs(N-i-1); j++){
+						console.printqueue("-");
+					}
+					for(var k=0, m=0; k<l; k++){
+						if(k>=i){inReverse=true;}
+						console.printqueue(m+1);
+						// if(k<=i){
+						// 	console.printqueue(k+1);
+						// } else {
+						// 	console.printqueue(k-i);
+						// }
+						m = inReverse ? m-1 : m+1;
+					}
+
+					l = outReverse ? l-2 : l+2;
+					console.print("");
+				}
+			} catch (Ex) {
+				console.printError(Ex);
+			}
+		});
+
+		// Explaination
+		// setTimeout needs a function in closure, i.e. do not call the function by adding () at the end
+		// just provide the function.
+	</script>
+</html>

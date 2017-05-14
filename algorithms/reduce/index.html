@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+      <link rel="import" href="/layouts/base.html">
+	</head>
+	<body>
+		<div class="context">
+			<pre>
+				input:
+					reduce([], function(memo, num){ return memo + num; }, 0);
+					reduce([1, 2, 3], function(memo, num){ return memo + num; }, 0);
+					reduce(['1', '2', '3'], function(memo, num){ return memo + num; }, 0);
+				output:
+					=> 0
+					=> 6
+					=> 123
+			</pre>
+		</div>
+		<div class="console">
+		</div>
+	</body>
+
+	<script type="text/javascript">
+		try {
+			function reduce(arr, callBack){
+				var memory = typeof(arr[0]) == 'string' ? '' : 0;
+
+				for(var i=0; i<arr.length; i++){
+					memory = callBack.call(null, memory, arr[i]);
+				}
+				return memory;
+			}
+
+			console.print(reduce([], function(memo, num){ return memo + num; }, 0));
+			console.print(reduce([1, 2, 3], function(memo, num){ return memo + num; }, 0));
+			console.print(reduce(['1', '2', '3'], function(memo, num){ return memo + num; }, 0));
+		} catch (Ex) {
+			console.printError(Ex);
+		}
+
+	</script>
+</html>

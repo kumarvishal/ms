@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+      <link rel="import" href="/layouts/base.html">
+	</head>
+	<body>
+		<div class="context">
+			<pre>
+				input:
+					var stooges = [{name: 'moe', age: 40}, {name: 'larry', age: 50}, {name: 'curly', age: 60}];
+					_.sortBy(stooges, 'name');
+				output:
+					=> [{name: 'curly', age: 60}, {name: 'larry', age: 50}, {name: 'moe', age: 40}];
+			</pre>
+		</div>
+		<div class="console">
+		</div>
+	</body>
+
+	<script type="text/javascript">
+		try {
+			var a;
+			console.print(a);
+		} catch (Ex) {
+			window.ee = Ex;
+			console.printError(Ex);
+		}
+
+	</script>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="/style/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="/style/css/common.css">
+		<script type="text/javascript" src="/script/jquery.min.js"></script>
+		<script type="text/javascript" src="/script/common.js"></script>
+	</head>
+	<body>
+		<div class="console">
+		</div>
+	</body>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			try {
+				var myvar = len = 3;
+				console.print(myvar, len);
+
+				function printFunc(i){
+					console.print('printFunc-', i);
+				}
+
+				function closureFunc(i){
+					return function(){
+						console.print('closureFunc-', i);
+					}
+				}
+
+
+				for(var i=0; i<len; i++){
+					console.print('forloop-', i);
+					setTimeout(function(){
+						//window.Spacer('-', 1);
+						console.print('-----------------------------');
+						printFunc(i);
+						closureFunc(i)();
+						console.print('timeout-', i);
+						console.print('-----------------------------');
+					}, 1000);
+
+					setTimeout(closureFunc(i), 1000);
+				}
+			} catch (Ex) {
+				console.printError(Ex);
+			}
+		});
+
+		// Explaination
+		// setTimeout needs a function in closure, i.e. do not call the function by adding () at the end
+		// just provide the function.
+	</script>
+</html>

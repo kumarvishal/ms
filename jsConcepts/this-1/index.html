@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="/style/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="/style/css/common.css">
+		<script type="text/javascript" src="/script/jquery.min.js"></script>
+		<script type="text/javascript" src="/script/common.js"></script>
+	</head>
+	<body>
+		<div class="console">
+		</div>
+	</body>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			try {
+				var name = 'outer';
+				var object = {
+					name: 'middle',
+					getNameFunc: function(){
+						return function(){
+							return this.name;
+						}
+					}
+				}
+
+				console.print(object.getNameFunc());
+				console.print(object.getNameFunc()());
+			} catch (Ex) {
+				console.printError(Ex);
+			}
+		});
+	</script>
+</html>

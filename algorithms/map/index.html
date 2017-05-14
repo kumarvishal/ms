@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+      <link rel="import" href="/layouts/base.html">
+	</head>
+	<body>
+		<div class="context">
+			<pre>
+				input:
+					map([1, 2, 3], function(num){ return num * 3; });
+				output:
+					=> [3, 6, 9]
+			</pre>
+		</div>
+		<div class="console">
+		</div>
+	</body>
+
+	<script type="text/javascript">
+		try {
+			function map(arr, callBack){
+				var newArr=[];
+				for(var i=0; i<arr.length; i++){
+					newArr.push(callBack.call(null, arr[i]));
+				}
+				return newArr;
+			}
+
+			var result = map([1, 2, 3], function(num){ return num * 3; });
+			console.print(result);
+		} catch (Ex) {
+			console.printError(Ex);
+		}
+
+	</script>
+</html>
